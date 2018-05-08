@@ -21,8 +21,8 @@
        loadJSON(function(response) {
            let data = JSON.parse(response);
 
-           if (window.onnJsonNamesloaded != null) {
-               window.onnJsonNamesloaded(data);
+           if (window.onJsonNamesloaded != null) {
+               window.onJsonNamesloaded(data);
            }
        });
     });
