@@ -1,6 +1,6 @@
 (function (jsonFile) {
 
-function loadJSON(callback) {
+function window.loadJSONNames(callback) {
 
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
@@ -16,15 +16,5 @@ function loadJSON(callback) {
     xobj.send(null);
 
 }
-
-// Call to function with anonymous callback
-loadJSON(function(response) {
-    // Do Something with the response e.g.
-    jsonresponse = JSON.parse(response);
-
-    // Assuming json data is wrapped in square brackets as Drew suggests
-    console.log(jsonresponse);
-
-});
-
+    
 })('https://raw.githubusercontent.com/p1ratrulezzz/cumberbatch/master/data/names.json');
