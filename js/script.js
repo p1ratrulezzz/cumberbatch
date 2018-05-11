@@ -70,3 +70,28 @@
   }
 
 })();
+
+// Copy btn name 
+function copy(event) {
+  // Выборка ссылки с электронной почтой 
+  var box = document.getElementById('box'); 
+  var range = document.createRange();  
+  range.selectNode(box);  
+  window.getSelection().addRange(range);  
+    
+  try {  
+    // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
+    var successful = document.execCommand('copy');  
+    var msg = successful ? 'successful' : 'unsuccessful';  
+    console.log('Copy email command was ' + msg);  
+  } catch(err) {  
+    console.log('Oops, unable to copy');  
+  }  
+    
+  // Снятие выделения - ВНИМАНИЕ: вы должны использовать
+  // removeRange(range) когда это возможно
+  window.getSelection().removeAllRanges();  
+}
+document.getElementById('resultCopy').addEventListener('click', copy);
+
+// End Copy btn name
