@@ -18,7 +18,7 @@ img {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: #043a00 url('../img/bg.jpg') no-repeat center ; 
+    background: #043a00 url('/dist/img/bg.jpg') no-repeat center ; 
     background-size: cover;
     transition: .2s;
 }
@@ -63,6 +63,11 @@ img {
     position: relative;
     font-size: 24px;
     margin-bottom: 15px;
+}
+
+.result-box {
+    display: inline-block;
+    min-width: 100px;
 }
 
 .result-copy {
