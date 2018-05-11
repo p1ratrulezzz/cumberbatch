@@ -1,4 +1,6 @@
 (function() {
+  const CONST_BTN_SPACE = '32';
+  
   function regenerate() {
     let cucumbers = buildCamberbatchName();
 
@@ -12,16 +14,16 @@
     regenerate();
   }
 
+  // Attach listeners
   document.getElementById('generate-button').addEventListener('click', regenerate);
+  document.getElementById('resultCopy').addEventListener('click', copyTextToCB);
+  
   document.addEventListener('keydown', function(e) {
-    if(e.which == 13 || e.which == 32) {
+    if(e.which == CONST_BTN_SPACE) {
       regenerate();
-      // copy(e)
     }
   });
-
-
-  /***************  YOU SHAL NOT TOUUUCH!! *****************************/
+  
   var names = {};
 
   // Load names.
@@ -34,20 +36,20 @@
   function random(min, max) {
     return Math.round(Math.random() * (max - min)) + min;
   }
+  
+  /**
+   *  @link: https://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object
+   */
+  function pickRandomProperty(obj) {
+    let result;
+    let count = 0;
+    for (var prop in obj)
+        if (Math.random() < 1/++count)
+           result = prop;
+    return result;
+  }
 
   function buildCamberbatchName(firstName, lastName) {
-
-    // @link: https://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object
-    function pickRandomProperty(obj) {
-      var result;
-      var count = 0;
-      for (var prop in obj)
-          if (Math.random() < 1/++count)
-             result = prop;
-      return result;
-    }
-
-
     if (firstName === undefined) {
       firstName = pickRandomProperty(names.first);
     }
@@ -73,30 +75,26 @@
 
     return bNames;
   }
+  
+  function copyTextToCB(event) {
+    let box = document.getElementById('box'); 
+    let range = document.createRange();  
+    range.selectNode(box);  
+    window.getSelection().addRange(range);  
 
+    try {  
+      // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
+      let successful = document.execCommand('copy');  
+      let msg = successful ? 'successful' : 'unsuccessful';  
+      console.log('Copy email command was ' + msg);  
+    }
+    catch(err) {  
+      console.log('Oops, unable to copy');  
+    }  
+
+    // Снятие выделения - ВНИМАНИЕ: вы должны использовать
+    // removeRange(range) когда это возможно
+    window.getSelection().removeAllRanges();  
+  }
+  
 })();
-
-// Copy btn name 
-function copy(event) {
-  // Выборка ссылки с электронной почтой 
-  var box = document.getElementById('box'); 
-  var range = document.createRange();  
-  range.selectNode(box);  
-  window.getSelection().addRange(range);  
-    
-  try {  
-    // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
-    var successful = document.execCommand('copy');  
-    var msg = successful ? 'successful' : 'unsuccessful';  
-    console.log('Copy email command was ' + msg);  
-  } catch(err) {  
-    console.log('Oops, unable to copy');  
-  }  
-    
-  // Снятие выделения - ВНИМАНИЕ: вы должны использовать
-  // removeRange(range) когда это возможно
-  window.getSelection().removeAllRanges();  
-}
-document.getElementById('resultCopy').addEventListener('click', copy);
-
-// End Copy btn name
