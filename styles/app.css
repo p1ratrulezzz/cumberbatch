@@ -80,7 +80,7 @@ img {
     padding: 10px 15px 10px 0px;
 
     @media (max-width: $screen-mobile) {
-        font-size: 4.8vw;
+        font-size: 5.8vw;
     }
 }
 
