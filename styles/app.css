@@ -1,3 +1,5 @@
+$screen-mobile: 480px;
+
 html,
 body {
     margin: 0;
@@ -20,12 +22,13 @@ img {
     height: 100vh;
     background: #043a00 url('/dist/img/bg.jpg') no-repeat center ; 
     background-size: cover;
-    transition: .2s;
+    transition: .2s; 
 }
 
 .form {
     position: relative;
     padding: 15px;
+    margin: 15px;
     max-width: 500px;
     min-height: 300px;
     width: 100%;
@@ -51,6 +54,10 @@ img {
     max-width: 200px;
     width: 100%;
     cursor: pointer;
+
+    @media(max-width: $screen-mobile) {
+        font-size: 4vw;
+    }
 }
 
 .btn:focus,
@@ -60,29 +67,42 @@ img {
 }
 
 .result {
-    position: relative;
+    display: flex;
+    align-items: center;
     font-size: 24px;
     margin-bottom: 15px;
+    line-height: 1.4;
 }
 
 .result-box {
     display: inline-block;
     min-width: 100px;
+    padding: 10px 15px 10px 0px;
+
+    @media (max-width: $screen-mobile) {
+        font-size: 4.8vw;
+    }
 }
 
 .result-copy {
-    position: absolute;
-    top: 0;
-    right: -47px;
-    padding: 0;
+    padding: 0 8px;
     border: 0;
     background: 0;
     cursor: pointer;
-    margin-left: 15px;
+
+    @media (max-width: $screen-mobile) {
+        position: absolute;
+        right: 15px;
+    }
 }
 
 .result-copy img {
     width: 28px;
+    margin-top: 4px;
+
+    @media (max-width: $screen-mobile) {
+        width: 20px;
+    }  
 }
 
 .contribute {
