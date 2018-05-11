@@ -14,9 +14,9 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #043a00;
-    background: url('../img/bg.jpg') no-repeat center; 
+    background: #043a00 url('../img/bg.jpg') no-repeat center ; 
     background-size: cover;
+    transition: .2s;
 }
 
 .form {
