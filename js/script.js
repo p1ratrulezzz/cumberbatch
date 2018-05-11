@@ -13,7 +13,12 @@
   }
 
   document.getElementById('generate-button').addEventListener('click', regenerate);
-
+  document.addEventListener('keydown', function(e) {
+    if(e.which == 13 || e.which == 32) {
+      regenerate();
+      // copy(e)
+    }
+  });
 
 
   /***************  YOU SHAL NOT TOUUUCH!! *****************************/
