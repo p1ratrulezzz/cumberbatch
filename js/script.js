@@ -1,5 +1,6 @@
 (function() {
-  const CONST_BTN_SPACE = '32';
+  const BTN_SPACE = '32';
+  const LANGUAGE_DEFAULT = 'en';
   
   function regenerate() {
     let cucumbers = buildCamberbatchName();
@@ -19,17 +20,36 @@
   document.getElementById('resultCopy').addEventListener('click', copyTextToCB);
   
   document.addEventListener('keydown', function(e) {
-    if(e.which == CONST_BTN_SPACE) {
+    if(e.which == BTN_SPACE) {
       regenerate();
     }
   });
   
   var names = {};
+  var language = LANGUAGE_DEFAULT;
+
+  function switchLanguage(lang) {
+    "use strict";
+
+    if (lang === undefined) {
+      let hash = location.hash && location.hash.substr(1) || null;
+
+      lang = hash || navigator.language || navigator.userLanguage || LANGUAGE_DEFAULT;
+    }
+
+    location.hash = '#' + lang;
+
+    language = lang;
+  }
 
   // Load names.
   window.onJsonNamesloaded = function(data) {
     names = data;
 
+    // Try to detect user's language
+    switchLanguage();
+
+    // Main entrypoint
     dataLoaded();
   };
 
@@ -50,28 +70,32 @@
   }
 
   function buildCamberbatchName(firstName, lastName) {
+    let langcode = language == "ru" ? "" : '_' + language;
+    let firstnames = names['first' + langcode] || names.first_en;
+    let lastnames = names['last' + langcode] || names.last_en;
+
     if (firstName === undefined) {
-      firstName = pickRandomProperty(names.first);
+      firstName = pickRandomProperty(firstnames);
     }
 
     if (lastName === undefined) {
-      lastName = pickRandomProperty(names.last);
+      lastName = pickRandomProperty(lastnames);
     }
 
     // We can't build name if
     if (
-      (firstName === undefined || names.first[ firstName.toLocaleLowerCase()[0] ] === undefined) ||
-      (lastName === undefined || names.last[ lastName.toLocaleLowerCase()[0] ] === undefined)
+      (firstName === undefined || firstnames[ firstName.toLocaleLowerCase()[0] ] === undefined) ||
+      (lastName === undefined || lastnames[ lastName.toLocaleLowerCase()[0] ] === undefined)
     ) {
       return false;
     }
 
     let bNames = [];
-    let firstNames = names.first[ firstName.toLocaleLowerCase()[0] ];
-    let lastNames = names.last[ lastName.toLocaleLowerCase()[0] ];
+    let cucubmernames = firstnames[ firstName.toLocaleLowerCase()[0] ];
+    bNames.push(cucubmernames[ random(0, cucubmernames.length - 1) ]);
 
-    bNames.push(firstNames[ random(0, firstNames.length - 1) ]);
-    bNames.push(lastNames[ random(0, lastNames.length - 1) ]);
+    cucubmernames = lastnames[ lastName.toLocaleLowerCase()[0] ];
+    bNames.push(cucubmernames[ random(0, cucubmernames.length - 1) ]);
 
     return bNames;
   }
@@ -86,7 +110,6 @@
       // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
       let successful = document.execCommand('copy');  
       let msg = successful ? 'successful' : 'unsuccessful';  
-      console.log('Copy email command was ' + msg);  
     }
     catch(err) {  
       console.log('Oops, unable to copy');  

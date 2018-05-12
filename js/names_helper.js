@@ -26,4 +26,4 @@
            }
        });
     });
-})('https://rawgit.com/p1ratrulezzz/cumberbatch/master/data/names.json');
+})('https://raw.githubusercontent.com/p1ratrulezzz/cumberbatch/master/data/names.json');
