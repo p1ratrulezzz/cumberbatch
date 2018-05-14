@@ -1,9 +1,17 @@
 (function() {
   const BTN_SPACE = '32';
   const LANGUAGE_DEFAULT = 'en';
+  
+  // @fixme: Move to names.json
   const LANGS_SUPPORTED = {
-    'en': true,
-    'ru': true
+    'en': {
+      title: 'English',
+      flagimage: '' //@todo: Add flag images
+    },
+    'ru': {
+      title: 'Русский',
+      flagimage: '', //@todo: Add flag images
+    }
   };
   
   function regenerate() {
