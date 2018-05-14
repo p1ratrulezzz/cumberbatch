@@ -19,7 +19,7 @@ img {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: #043a00 url('../img/templates/ben-1.png') no-repeat center; 
+    background: #043a00 url('../img/templates/ben-1.png') no-repeat; 
     background-size: cover;
     transition: .2s; 
 }
