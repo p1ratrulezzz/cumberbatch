@@ -21,7 +21,8 @@ img {
     height: 100vh;
     background: #043a00 url('../img/templates/ben-1.png') no-repeat top left; 
     background-size: cover;
-    transition: .2s; 
+    transition: .2s;
+    min-width: 1280px;
 }
 
 .form {
