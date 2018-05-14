@@ -35,6 +35,7 @@
       let hash = location.hash && location.hash.substr(1) || null;
 
       lang = hash || navigator.language || navigator.userLanguage || LANGUAGE_DEFAULT;
+      lang = lang.split('-').shift();
     }
 
     location.hash = '#' + lang;
