@@ -1,6 +1,10 @@
 (function() {
   const BTN_SPACE = '32';
   const LANGUAGE_DEFAULT = 'en';
+  const LANGS_SUPPORTED = {
+    'en': true,
+    'ru': true
+  };
   
   function regenerate() {
     let cucumbers = buildCamberbatchName();
@@ -35,7 +39,14 @@
       let hash = location.hash && location.hash.substr(1) || null;
 
       lang = hash || navigator.language || navigator.userLanguage || LANGUAGE_DEFAULT;
+      
+      // Process values like 'ru-RU', we need only first part
       lang = lang.split('-').shift();
+    }
+    
+    // Fallback to English if language is not supported
+    if (LANGS_SUPPORTED[lang] == null) {
+      lang = 'en';
     }
 
     location.hash = '#' + lang;
