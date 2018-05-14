@@ -104,9 +104,9 @@ img {
 }
 
 .hidden {
-  position: static; 
-  clip: auto; 
-  height: inherit !important; 
-  width: inherit !important; 
-  overflow: inherit !important;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
 }
