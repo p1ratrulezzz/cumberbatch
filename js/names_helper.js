@@ -20,13 +20,20 @@
 
     }
     
-    document.addEventListener("DOMContentLoaded", function(event) {
+    window.onload = function(event) {
        loadJSON(function(response) {
            let data = JSON.parse(response);
 
-           if (window.onJsonNamesloaded != null) {
-               window.onJsonNamesloaded(data);
+           function triggerJsonData() {
+               if (window.onJsonNamesloaded != null) {
+                   window.onJsonNamesloaded(data);
+               }
+               else {
+                   setTimeout(triggerJsonData, 100);
+               }
            }
+           
+           triggerJsonData();
        });
-    });
+    };
 })('https://cdn.jsdelivr.net/gh/p1ratrulezzz/cumberbatch@0.0.1/data/names.json');
