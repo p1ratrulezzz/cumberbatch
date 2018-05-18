@@ -20,7 +20,7 @@
 
     }
     
-    window.onload = function(event) {
+    window.addEventListener("load", function(event) {
        loadJSON(function(response) {
            let data = JSON.parse(response);
 
@@ -35,5 +35,5 @@
            
            triggerJsonData();
        });
-    };
+    });
 })('https://cdn.jsdelivr.net/gh/p1ratrulezzz/cumberbatch@0.0.1/data/names.json');
