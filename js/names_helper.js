@@ -5,9 +5,9 @@
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
         xobj.open('GET', jsonFile, true);
-        xobj.onerror(function(e) {
+        xobj.onerror = function(e) {
             alert("Error " + e.target.status + " occurred while receiving the document. Try to refresh the page");
-        });
+        };
         
         xobj.onreadystatechange = function() {
             if (xobj.readyState == 4 && xobj.status == "200") {
