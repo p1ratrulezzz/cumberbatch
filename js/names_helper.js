@@ -26,9 +26,11 @@
 
            function triggerJsonData() {
                if (window.onJsonNamesloaded != null) {
+                   console.log('Passing the control to onJsonNamesloaded()');
                    window.onJsonNamesloaded(data);
                }
                else {
+                   console.log('Waiting for onJsonNamesloaded() handler...');
                    setTimeout(triggerJsonData, 100);
                }
            }
