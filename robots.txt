@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: 
+Allow: /index.html
+
+Sitemap: https://cumberbat.ch/sitemap.xml

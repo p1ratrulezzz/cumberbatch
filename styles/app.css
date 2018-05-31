@@ -19,16 +19,17 @@ img {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: #043a00 url('../img/templates/ben-1.png') no-repeat center; 
+    background: #fff url('../img/templates/ben-1.png') no-repeat top left; 
     background-size: cover;
-    transition: .2s; 
+    transition: .2s;
+    min-width: 1280px;
 }
 
 .form {
     position: relative;
     padding: 15px;
     margin: 15px;
-	margin-left: 604px;
+    margin-left: 604px;
     max-width: 600px;
     min-height: 300px;
     width: 100%;
@@ -65,11 +66,11 @@ img {
 .result {
     display: block;
     align-items: center;
-    font-size: 150px;
+    font-size: 900%;
     margin-bottom: 15px;
     line-height: 1.4;
-	font-family: 'Source Sans Pro', sans-serif;
-	transform: rotate(6deg);
+    font-family: 'Source Sans Pro', sans-serif;
+    transform: rotate(6deg);
 }
 
 .result-box {
@@ -80,14 +81,13 @@ img {
 
 
 .result .buttons-wrapper {
-	clear: both;
-	
+   clear: both;
 }
 
 .contribute-button {
-	display: inline-block;
-	width: 35px;
-	height: 100%;
+    display: inline-block;
+    width: 35px;
+    height: 100%;
 }
 
 .contribute-button a {
@@ -95,10 +95,18 @@ img {
     height: 100%;
     display: block;
     text-decoration: none;
-	display: block;
+    display: block;
 }
 
 
 .contribute:hover {
     opacity: .7;
+}
+
+.hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
 }
