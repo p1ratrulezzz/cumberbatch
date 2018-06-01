@@ -1,9 +1,10 @@
+
 html,
 body {
     margin: 0;
     padding: 0;
     position: relative;
-} 
+}
 
 * {
     -webkit-box-sizing: border-box;
@@ -22,7 +23,9 @@ body {
     min-height: 100%;
     height: 100%;
     margin: 0;
-    background: #fff url('../img/templates/ben-1.png') no-repeat top left; 
+    background: #fff url('../img/templates/ben-1.png') no-repeat top left;
+    -webkit-transition: 2s;
+    transition: 2s;
 }
 
 img {
@@ -48,6 +51,7 @@ img {
     height: 100%;
 }
 
+
 .form {
     position: relative;
     padding: 15px;
@@ -55,7 +59,7 @@ img {
     max-width: 600px;
     min-height: 300px;
     width: 100%;
-     background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -115,17 +119,15 @@ img {
     font-size: 30px;
 }
 
-
 .result .buttons-wrapper {
-   display: -webkit-box;
-   display: -ms-flexbox;
-   display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 .buttons-wrapper .btn {
     margin-right: 15px;
 }
-
 
 .contribute {
     width: 40px;
@@ -135,17 +137,41 @@ img {
     text-decoration: none;
 }
 
-
 .contribute:hover {
     opacity: .7;
 }
 
 .hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
 }
 
+.info {
+    margin-top: 15px;
+    font-size: 20px;
+    height: 1em;
+    font-weight: 300;
+}
+
+@media (max-width: 1300px) {
+    .container {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+    }
+
+    .form {
+        min-height: 0;
+    }
+
+    body {
+        background-size: cover;
+    }
+}
 /*# sourceMappingURL=app.css.map */
