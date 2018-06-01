@@ -130,6 +130,7 @@
       // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
       let successful = document.execCommand('copy');  
       let msg = successful ? 'successful' : 'unsuccessful';  
+      writeMsg('Copied!')
     }
     catch(err) {  
       console.log('Oops, unable to copy');  
@@ -138,6 +139,14 @@
     // Снятие выделения - ВНИМАНИЕ: вы должны использовать
     // removeRange(range) когда это возможно
     window.getSelection().removeAllRanges();  
+  }
+
+  function writeMsg(msg) {
+    let info = document.getElementById('info');
+    info.innerHTML = msg;
+    setTimeout(function() {
+      info.innerHTML = ''
+    }, 1000)
   }
   
 })();
