@@ -1,29 +1,13 @@
+$screen-mobile: 480px;
 
-html,
-body {
+html body {
     margin: 0;
     padding: 0;
-    position: relative;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    position: relative;
-    height: 100%;
 }
 
 body {
-    position: relative;
     font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
-    min-height: 100%;
-    height: 100%;
-    margin: 0;
-    background: #fff url('../img/templates/ben-1.png') no-repeat top left;
-    transition: 2s;
 }
 
 img {
@@ -31,26 +15,25 @@ img {
 }
 
 .container {
-    position: relative;
-    min-height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    height: 100vh;
+    background: #fff url('../img/templates/ben-1.png') no-repeat top left; 
     background-size: cover;
     transition: .2s;
-    width: 100%;
-    height: 100%;
+    min-width: 1280px;
 }
-
 
 .form {
     position: relative;
     padding: 15px;
     margin: 15px;
+    margin-left: 604px;
     max-width: 600px;
     min-height: 300px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8); */
     text-align: center;
     display: flex;
     justify-content: center;
@@ -83,65 +66,47 @@ img {
 .result {
     display: block;
     align-items: center;
-    font-size: 24px;
+    font-size: 900%;
     margin-bottom: 15px;
     line-height: 1.4;
     font-family: 'Source Sans Pro', sans-serif;
+    transform: rotate(6deg);
 }
 
 .result-box {
     display: inline-block;
     min-width: 100px;
     padding: 10px 15px 10px 0px;
-    font-size: 30px;
 }
+
 
 .result .buttons-wrapper {
-    display: flex;
+   clear: both;
 }
 
-.buttons-wrapper .btn {
-    margin-right: 15px;
-}
-
-.contribute {
-    width: 40px;
+.contribute-button {
+    display: inline-block;
+    width: 35px;
     height: 100%;
-    margin-bottom: -10px;
+}
+
+.contribute-button a {
+    width: 100%;
+    height: 100%;
     display: block;
     text-decoration: none;
+    display: block;
 }
+
 
 .contribute:hover {
     opacity: .7;
 }
 
 .hidden {
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px);
-}
-
-.info {
-    margin-top: 15px;
-    font-size: 20px;
-    height: 1em;
-    font-weight: 300;
-}
-
-@media (max-width: 1300px) {
-    .container {
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    .form {
-        min-height: 0;
-    }
-
-    body {
-        background-size: cover;
-    }
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
 }
