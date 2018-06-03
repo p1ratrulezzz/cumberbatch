@@ -25,6 +25,7 @@
   // Use the body of this function to write custom scripts to trigger when all JSON data is loaded.
   function dataLoaded() {
     regenerate();
+    window.initialZoom();
   }
 
   // Attach listeners
