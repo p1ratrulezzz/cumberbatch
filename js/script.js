@@ -144,6 +144,7 @@
     // Initial zoom 0.28 for resolution of 304500
     let newZoom = Math.floor(((window.screen.availWidth * 0.28) / 375) * 1000) / 1000;
     document.body.style.zoom = newZoom;
+    console.log("zoom adjust newzoom=", newZoom);
   }
   
   document.addEventListener("DOMContentLoaded", initialZoom);
