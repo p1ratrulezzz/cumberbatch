@@ -146,4 +146,6 @@
     document.body.style.zoom = newZoom;
   }
   
+  document.addEventListener("DOMContentLoaded", initialZoom);
+  
 })();
