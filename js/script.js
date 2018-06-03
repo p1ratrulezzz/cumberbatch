@@ -147,7 +147,8 @@
     console.log("zoom adjust newzoom=", newZoom);
   }
   
-  document.addEventListener("DOMContentLoaded", initialZoom);
-  document.addEventListener("resize", initialZoom);
+  
+  window.addEventListener("load", initialZoom);
+  window.addEventListener("load", initialZoom);
   
 })();
