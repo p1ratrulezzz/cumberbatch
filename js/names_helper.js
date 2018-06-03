@@ -21,7 +21,6 @@
     }
     
     window.addEventListener("load", function(event) {
-       console.log('DOM content loaded');
        loadJSON(function(response) {
            let data = JSON.parse(response);
 
