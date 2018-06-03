@@ -149,6 +149,6 @@
   
   
   window.addEventListener("load", initialZoom);
-  window.addEventListener("load", initialZoom);
+  window.addEventListener("resize", initialZoom);
   
 })();
