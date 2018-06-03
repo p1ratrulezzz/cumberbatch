@@ -140,12 +140,12 @@
     window.getSelection().removeAllRanges();  
   }
   
-  function initialZoom() {
+  window.initialZoom = function () {
     // Initial zoom 0.28 for resolution of 304500
-    let newZoom = window.screen.availHeight * window.screen.availWidth * 0.28 / 304500;
+    let newZoom = Math.floor(((window.screen.availHeight * window.screen.availWidth * 0.28) / 304500) * 10) / 10;
     document.body.style.zoom = newZoom;
   }
   
-  document.addEventListener("DOMContentLoaded", initialZoom);
+  // document.addEventListener("DOMContentLoaded", initialZoom);
   
 })();
