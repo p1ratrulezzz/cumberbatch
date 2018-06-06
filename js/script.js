@@ -142,6 +142,10 @@
   }
   
   window.initialZoom = function () {
+    if (window.screen.availWidth > 1024) {
+      return;
+    }
+    
     // Initial zoom 0.28 for resolution of 304500
     let newZoom = Math.floor(((window.screen.availWidth * 0.28) / 375) * 1000) / 1000;
     document.body.style.zoom = newZoom;
