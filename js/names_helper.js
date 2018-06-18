@@ -38,4 +38,4 @@
            triggerJsonData();
        });
     });
-})('https://cdn.jsdelivr.net/gh/p1ratrulezzz/cumberbatch@0.0.1/data/names.json');
+})('https://cdn.jsdelivr.net/gh/p1ratrulezzz/cumberbatch@0.0.3/data/names.json');
