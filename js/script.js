@@ -1,4 +1,17 @@
 (function() {
+  /**
+   * Fix for IE.
+   *
+   * @link https://stackoverflow.com/a/32589923
+   * @type {HTMLScriptElement | SVGScriptElement | null | *}
+   */
+  document.currentScript = document.currentScript || (function() {
+    let scripts = document.getElementsByTagName('script');
+    return scripts[scripts.length - 1];
+  })();
+
+  window.is_mobile = document.currentScript.getAttribute('mobile') == "true" || false;
+
   const BTN_SPACE = '32';
   const LANGUAGE_DEFAULT = 'en';
   
@@ -19,13 +32,23 @@
 
     let name = cucumbers.shift() + ' ' + cucumbers.shift();
 
-    document.getElementById('box').innerHTML = name;
+    if (document.getElementById('generate-button').getAttribute('cmb:updatable') == "1") {
+      document.getElementById('generate-button').innerHTML = name;
+    }
+    else {
+      document.getElementById('box').innerHTML = name;
+    }
   }
 
   // Use the body of this function to write custom scripts to trigger when all JSON data is loaded.
   function dataLoaded() {
     regenerate();
-    window.initialZoom();
+    if (window.is_mobile === false) {
+      window.initialZoom();
+    }
+    else {
+      window.mobileAdjustTitle();
+    }
   }
 
   // Attach listeners
@@ -127,20 +150,17 @@
     range.selectNode(box);  
     window.getSelection().addRange(range);  
 
-    try {  
-      // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
+    try {
       let successful = document.execCommand('copy');  
       let msg = successful ? 'successful' : 'unsuccessful';  
     }
     catch(err) {  
-      console.log('Oops, unable to copy');  
-    }  
+      // console.log('Oops, unable to copy');
+    }
 
-    // Снятие выделения - ВНИМАНИЕ: вы должны использовать
-    // removeRange(range) когда это возможно
     window.getSelection().removeAllRanges();  
   }
-  
+
   window.initialZoom = function () {
     if (window.screen.availWidth > 1024) {
       return;
@@ -151,9 +171,18 @@
     document.body.style.zoom = newZoom;
     console.log("zoom adjust newzoom=", newZoom);
   }
-  
-  
-  window.addEventListener("load", initialZoom);
-  window.addEventListener("resize", initialZoom);
+
+  window.mobileAdjustTitle = function() {
+    /**
+     * 1366 - 60vh
+     * availHeight - x
+     */
+    document.getElementById('result-wrapper').style["margin-top"] = (60 * window.screen.availHeight / 1366) + 'vh';
+  }
+
+  if (window.is_mobile === false) {
+    window.addEventListener("load", initialZoom);
+    window.addEventListener("resize", initialZoom);
+  }
   
 })();
