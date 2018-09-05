@@ -121,6 +121,41 @@
   <div class="footer" style="display: none;">
 	  <a href="data/names.json">Download cumberbatch names dataset (JSON)</a>
   </div>
+  <!------ Rambler.Likes script start ------>
+<div class="rambler-share"></div>
+<script>
+(function() {
+var init = function() {
+RamblerShare.init('.rambler-share', {
+	"style": {
+		"buttonHeight": 35,
+		"iconSize": 21,
+		"borderRadius": 18,
+		"borderWidth": 2
+	},
+	"utm": "utm_medium=social",
+	"counters": true,
+	"buttons": [
+		"vkontakte",
+		"facebook",
+		"odnoklassniki",
+		"livejournal",
+		"twitter",
+		"telegram",
+		"viber",
+		"whatsapp",
+		"copy"
+	]
+});
+};
+var script = document.createElement('script');
+script.onload = init;
+script.async = true;
+script.src = 'https://developers.rambler.ru/likes/v1/widget.js';
+document.head.appendChild(script);
+})();
+</script>
+<!------   Rambler.Likes script end  ------>
   <script async defer type="text/javascript" src="js/script.js"></script>
 </body>
 
