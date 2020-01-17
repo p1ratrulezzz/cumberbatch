@@ -93,6 +93,19 @@
     // Try to detect user's language
     switchLanguage();
 
+    // Build reverse map for best matches.
+    ["ru", "en"].forEach(function(langcode) {
+      let map = names["best_combinations_" + langcode];
+      Object.getOwnPropertyNames(map).forEach(function(prop) {
+        let map_id = map[prop];
+        map[map_id] = prop;
+      });
+    });
+
+    // Fallback compatibility.
+    names.first_ru = names.first;
+    names.last_ru = names.last;
+
     // Main entrypoint
     dataLoaded();
   };
@@ -100,7 +113,7 @@
   function random(min, max) {
     return Math.round(Math.random() * (max - min)) + min;
   }
-  
+
   /**
    *  @link: https://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object
    */
@@ -117,10 +130,13 @@
   }
 
   function buildCamberbatchName(firstName, lastName) {
-    let langcode = language == "ru" ? "" : '_' + language;
-    let firstnames = names['first' + langcode] || names.first_en;
-    let lastnames = names['last' + langcode] || names.last_en;
+    let langcode = language;
+    let bestMatchesMap = names["best_combinations_" + langcode] || {};
+    let firstnames = names['first_' + langcode] || names.first_en;
+    let lastnames = names['last_' + langcode] || names.last_en;
 
+
+    console.log("best_combinations_" + langcode);
     if (firstName === undefined) {
       firstName = pickRandomProperty(firstnames);
     }
@@ -138,11 +154,35 @@
     }
 
     let bNames = [];
-    let cucubmernames = firstnames[ firstName.toLocaleLowerCase()[0] ];
-    bNames.push(cucubmernames[ random(0, cucubmernames.length - 1) ]);
 
-    cucubmernames = lastnames[ lastName.toLocaleLowerCase()[0] ];
-    bNames.push(cucubmernames[ random(0, cucubmernames.length - 1) ]);
+    let firstNameLetter = firstName.toLocaleLowerCase()[0];
+    let lastNameLetter = lastName.toLocaleLowerCase()[0];
+
+    let cucubmernamesFirst = firstnames[ firstNameLetter];
+    let cucubmernamesLast = lastnames[ lastNameLetter ];
+
+    // Check if have best match
+    let firstNameIndex = random(0, cucubmernamesFirst.length - 1);
+    let lastNameIndex = random(0, cucubmernamesLast.length - 1);
+
+    // Check firstname best match.
+    let map_id = "firstname_" + firstNameLetter + '_' + firstNameIndex;
+    if (bestMatchesMap[map_id] != null) {
+      let mapDetails = bestMatchesMap[map_id].split('_');
+      cucubmernamesLast = lastnames[mapDetails[1]];
+      lastNameIndex = mapDetails[2];
+    }
+
+    // Check lastname best match.
+    map_id = "lastname" + lastNameLetter + '_' + lastNameIndex;
+    if (bestMatchesMap[map_id] != null) {
+      let mapDetails = bestMatchesMap[map_id].split('_');
+      cucubmernamesFirst = lastnames[mapDetails[1]];
+      firstNameIndex = mapDetails[2];
+    }
+
+    bNames.push(cucubmernamesFirst[ firstNameIndex ]);
+    bNames.push(cucubmernamesLast[ lastNameIndex ]);
 
     return bNames;
   }
