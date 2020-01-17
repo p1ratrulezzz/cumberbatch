@@ -107,9 +107,12 @@
   function pickRandomProperty(obj) {
     let result;
     let count = 0;
-    for (var prop in obj)
-        if (Math.random() < 1/++count)
+    for (let prop in obj) {
+        if (Math.random() < 1/++count) {
            result = prop;
+        }
+    }
+    
     return result;
   }
 
