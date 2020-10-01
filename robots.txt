@@ -1,6 +1,2 @@
 User-Agent: *
-Allow: /index.html
-Allow: /data/names.json
-Disallow: 
-
 Sitemap: https://cumberbat.ch/sitemap.xml
