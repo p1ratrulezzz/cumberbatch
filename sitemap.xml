@@ -2,14 +2,14 @@
 <!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://cumberbat.ch/</loc>
-    <lastmod>2018-05-16</lastmod>
+    <loc>https://cumberbatch.website/</loc>
+    <lastmod>2022-03-21</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://cumberbat.ch/data/names.json</loc>
-    <lastmod>2018-05-16</lastmod>
+    <loc>https://cumberbatch.website/data/names.json</loc>
+    <lastmod>2022-03-21</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
