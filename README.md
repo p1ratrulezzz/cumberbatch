@@ -1,7 +1,7 @@
 # cumberbatch
 Cumberbatch name generator
 
-[cumberbat.ch](http://cumberbatch.website)
+[cumberbatch.website](http://cumberbatch.website)
 
 Сайт создан в целях обучения и дабы поржать. 
 
