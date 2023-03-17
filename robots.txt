@@ -1,2 +1,2 @@
 User-Agent: *
-Sitemap: https://cumberbatch.website/sitemap.xml
+Sitemap: https://cumberbat.ch/sitemap.xml
