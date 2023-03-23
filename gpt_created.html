@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор имен Бенедикта Камбербэтча</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #image-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            height: 300px;
+            background-image: url("https://picsum.photos/300");
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 1rem;
+        }
+
+        #name-text {
+            position: absolute;
+            color: white;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+    <script>
+        function generateName() {
+            const firstNames = ["Бенедикт", "Барнард", "Бернар", "Брандон", "Бенжамин"];
+            const lastNames = ["Камбербэтч", "Камбербёрд", "Камбербрэд", "Камберблэтч", "Камбербутт"];
+
+            const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+
+            const nameText = document.getElementById("name-text");
+            nameText.innerHTML = randomFirstName + " " + randomLastName;
+        }
+    </script>
+</head>
+<body>
+    <h1>Генератор имен Бенедикта Камбербэтча</h1>
+    <div id="image-container">
+        <span id="name-text">Бенедикт Камбербэтч</span>
+    </div>
+    <button onclick="generateName()">Генерировать</button>
+</body>
+</html>
